@@ -24,6 +24,12 @@ public class Ingredient {
     public Ingredient() {
     }
 
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uof) {
+        this.description = description;
+        this.amount = amount;
+        this.uof = uof;
+    }
+
     public Ingredient(String description, BigDecimal amount, UnitOfMeasure uof, Recipe recipe) {
         this.description = description;
         this.amount = amount;
