@@ -1,7 +1,7 @@
 package guru.springframework.controllers;
 
 import guru.springframework.domain.Recipe;
-import guru.springframework.services.RecipesService;
+import guru.springframework.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -28,7 +28,7 @@ public class IndexControllerTest {
     IndexController controller;
 
     @Mock
-    RecipesService recipesService;
+    RecipeService recipeService;
 
     @Mock
     Model model;
@@ -37,7 +37,7 @@ public class IndexControllerTest {
     public void setUp() throws Exception {
 
         MockitoAnnotations.initMocks(this);
-        controller = new IndexController(recipesService);
+        controller = new IndexController(recipeService);
 
     }
 
@@ -61,7 +61,7 @@ public class IndexControllerTest {
         recipe.setId(1L);
         recipes.add(recipe);
 
-        when(recipesService.getRecipes()).thenReturn(recipes);
+        when(recipeService.getRecipes()).thenReturn(recipes);
 
         ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor.forClass(Set.class);
 
@@ -71,7 +71,7 @@ public class IndexControllerTest {
 
         //then
         assertEquals("index", viewName);
-        verify(recipesService, times(1)).getRecipes();
+        verify(recipeService, times(1)).getRecipes();
         verify(model, times(1)).addAttribute(eq("recipes"), argumentCaptor.capture());
         Set<Recipe> setInController = argumentCaptor.getValue();
         assertEquals(2, setInController.size());
