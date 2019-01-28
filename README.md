@@ -19,3 +19,4 @@ This application is for managing recipes. A user can create, read, update and de
 * Lombok
 * Maven
 * IntelliJ
+* Logging with SLF4J
