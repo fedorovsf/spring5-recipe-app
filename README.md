@@ -17,3 +17,5 @@ This application is for managing recipes. A user can create, read, update and de
 * Bootstrap
 * Continuous Integration with CircleCI
 * Lombok
+* Maven
+* IntelliJ
